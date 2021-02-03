@@ -96,6 +96,10 @@ export class StarWarsService {
     this.logService.writeLog(
       "Character: " + charInfo.name + " is now " + charInfo.side
     );
+
+    if(charInfo.side === 'dark') {
+      console.error("This is probably something a test analyst should log for dev")
+    }
   }
 
   addCharacter(name, side) {
