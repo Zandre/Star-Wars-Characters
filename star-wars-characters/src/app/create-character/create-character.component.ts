@@ -12,6 +12,13 @@ export class CreateCharacterComponent implements OnInit {
 {display: 'Light', value: 'light'},
 {display: 'Dark', value: 'dark'}]
 
+availableLightSabres = [{display: 'None', value: ''},
+{display: 'Green', value: 'green'},
+{display: 'Blue', value: 'blue'},
+{display: 'Red', value: 'red'},
+{display: 'Purple', value: 'purple'},
+]
+
 swService: StarWarsService;
 
   constructor(swService: StarWarsService) {
@@ -28,7 +35,7 @@ swService: StarWarsService;
   }
 
     console.log(submittedForm.value);
-    this.swService.addCharacter(submittedForm.value.name, submittedForm.value.side);
+    this.swService.addCharacter(submittedForm.value.name, submittedForm.value.side, submittedForm.value.saber);
   }
 
 }

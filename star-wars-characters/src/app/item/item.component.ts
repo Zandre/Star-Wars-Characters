@@ -22,4 +22,9 @@ export class ItemComponent implements OnInit {
     this.swService.onSideChosen({name: this.character.name, side: side});
   }
 
+  onAssignSaber(saber) {
+    this.swService.onSaberChosen({name: this.character.name, saber: saber});
+  }
+
+
 }

@@ -17,5 +17,11 @@
       <option *ngFor="let option of availableSides" [value]="option.value">{{option.display}}</option>
     </select>
   </div>
+  <div class="form-group">
+    <label for="side">Choose lightsaber color</label>
+    <select name="saber" id="saber" class="form-control" ngModel>
+      <option *ngFor="let option of availableLightSabres" [value]="option.value">{{option.display}}</option>
+    </select>
+  </div>
   <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Add Character</button>
 </form>

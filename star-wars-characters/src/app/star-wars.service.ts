@@ -9,43 +9,53 @@ export class StarWarsService {
   private characters = [
     {
       name: "Luke Skywalker",
-      side: ""
+      side: "",
+      lightsaber: ""
     },
     {
       name: "Darth Vader",
-      side: ""
+      side: "",
+      lightsaber: ""
     },
     {
       name: "Han Solo",
-      side: ""
+      side: "",
+      lightsaber: ""
     },
     {
       name: "Emperor Palpatine",
-      side: ""
+      side: "",
+      lightsaber: ""
     },
     {
       name: "Yoda",
-      side: ""
+      side: "",
+      lightsaber: ""
     },
     {
       name: "Darth Maul",
-      side: ""
+      side: "",
+      lightsaber: ""
     },
     {
       name: "Obi-Wan Kenobi",
-      side: ""
+      side: "",
+      lightsaber: ""
     },
     {
       name: "Princess Padme Amidala",
-      side: ""
+      side: "",
+      lightsaber: ""
     },
     {
       name: "Chewbacka",
-      side: ""
+      side: "",
+      lightsaber: ""
     },
     {
       name: "Count Dookoo",
-      side: ""
+      side: "",
+      lightsaber: ""
     }
   ];
 
@@ -93,16 +103,22 @@ export class StarWarsService {
 
     this.characters[pos].side = charInfo.side;
     this.charactersChanged.next();
-    this.logService.writeLog(
-      "Character: " + charInfo.name + " is now " + charInfo.side
-    );
 
     if(charInfo.side === 'dark') {
       console.error("This is probably something a test analyst should log for dev")
     }
   }
 
-  addCharacter(name, side) {
+  onSaberChosen(charInfo) {
+    const pos = this.characters.findIndex(char => {
+      return char.name === charInfo.name;
+    });
+
+    this.characters[pos].lightsaber = charInfo.saber;
+    this.charactersChanged.next();
+  }
+
+  addCharacter(name, side, saber) {
     const pos = this.characters.findIndex(char => {
       return char.name === name;
     });
@@ -111,7 +127,7 @@ export class StarWarsService {
       return;
     }
 
-    const newChar = { name: name, side: side };
+    const newChar = { name: name, side: side, lightsaber: saber };
     this.characters.push(newChar);
   }
 }

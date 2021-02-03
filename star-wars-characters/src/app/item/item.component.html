@@ -1,8 +1,31 @@
-<a style="cursor: pointer;" class="list-group-item">
-    <h4 class="list-group-item-heading">{{character.name}}</h4>
-    <div>
-      <button ngClass="{{ character.side === 'light' ? 'btn btn-primary' : 'btn'}}" (click)="onAssign('light')">Light</button>
-      <button ngClass="{{ character.side === 'dark' ? 'btn btn-danger' : 'btn'}}" (click)="onAssign('dark')">Dark</button>
-    </div>
-    <!-- <pre>{{ character | json }}</pre> -->
-  </a>
+<a style="cursor: pointer;"
+  class="list-group-item"
+  [ngClass]="{'green': character.lightsaber === 'green'}">
+  <h4 class="list-group-item-heading">{{character.name}}</h4>
+
+  <h6>Side</h6>
+  <div>
+    <button ngClass="{{ character.side === 'light' ? 'btn btn-primary' : 'btn'}}"
+      (click)="onAssign('light')">Light</button>
+    <button ngClass="{{ character.side === 'dark' ? 'btn btn-danger' : 'btn'}}"
+      (click)="onAssign('dark')">Dark</button>
+  </div>
+
+
+  <h6>LightSaber</h6>
+  <div>
+
+    <button ngClass="{{ character.lightsaber === 'green' ? 'btn green' : 'btn'}}"
+      (click)="onAssignSaber('green')">Green Saber</button>
+
+    <button ngClass="{{ character.lightsaber === 'red' ? 'btn red' : 'btn'}}"
+      (click)="onAssignSaber('red')">Red Saber</button>
+
+    <button ngClass="{{ character.lightsaber === 'purple' ? 'btn purple' : 'btn'}}"
+      (click)="onAssignSaber('purple')">Purple Saber</button>
+
+    <button ngClass="{{ character.lightsaber === 'blue' ? 'btn blue' : 'btn'}}"
+      (click)="onAssignSaber('blue')">Blue Saber</button>
+  </div>
+  <!-- <pre>{{ character | json }}</pre> -->
+</a>
