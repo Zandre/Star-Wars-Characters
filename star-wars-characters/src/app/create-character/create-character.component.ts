@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { StarWarsService } from 'app/star-wars.service';
 
 @Component({
@@ -21,7 +22,8 @@ availableLightSabres = [{display: 'None', value: ''},
 
 swService: StarWarsService;
 
-  constructor(swService: StarWarsService) {
+  constructor(swService: StarWarsService,
+    private readonly router: Router) {
     this.swService = swService;
    }
 
@@ -33,9 +35,8 @@ swService: StarWarsService;
   if (submittedForm.invalid){
     return;
   }
-
-    console.log(submittedForm.value);
     this.swService.addCharacter(submittedForm.value.name, submittedForm.value.side, submittedForm.value.saber);
+    this.router.navigateByUrl('/characters');
   }
 
 }
